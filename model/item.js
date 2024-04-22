@@ -9,6 +9,7 @@ const ItemSchema = new Schema({
     count: {
         type: Number,
         required: true,
+        min: [0, "Count cannot be negative"]
     },
     state: {
         type: String,
