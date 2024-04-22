@@ -2,11 +2,6 @@ const Item = require("../model/item");
 
 exports.createItem = async (req, res) => {
     try {
-
-        if (req.body.count < 0) {
-            return res.status(400).json({ message: "Count cannot be negative" });
-        }
-
         const newItem = new Item({
             content: req.body.content,
             count: req.body.count,
@@ -67,11 +62,6 @@ exports.deleteItem = async (req, res) => {
 };
 
 exports.updateItem = async (req, res) => {
-
-    if (req.body.count < 0) {
-        return res.status(400).json({ message: "Count cannot be negative" });
-    }
-
     try {
         const updatedItem = await Item.findByIdAndUpdate(
             req.params.id,
